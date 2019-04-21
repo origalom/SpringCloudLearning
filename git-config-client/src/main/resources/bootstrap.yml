@@ -1,0 +1,11 @@
+# 注意文件名必须是bootstrap，配置才可被正确读取
+spring:
+  application:
+    name: git-config-client       # 服务名称，对应配置文件规则中的{application}部分
+  cloud:
+    config:
+      uri: http://localhost:9100  # 配置中心地址，对应配置文件规则中的{label}部分
+      profile: dev                # 使用的环境，对应配置文件规则中的{profile}部分
+      label: master               # git版本，配置中心config-server的地址
+server:
+  port: 9111
