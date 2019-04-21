@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>springcloud</artifactId>
+        <groupId>cn.origal</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>eureka-client-8000</artifactId>
+    <description>eureka服务提供客户端</description>
+
+    <dependencies>
+        <!--   eureka客户端     -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+
+        <!--
+            需要添加web包，不然在运行的时候会提示：Unregistering application EUREKA-CLIENT with eureka with status DOWN
+            导致服务注册不成功。出现上述情况的原因是JVM随着主线程的结束而退出了。容器close时会触发DiscoveryClient的shutdown方法，
+            便会注销已注册的节点。但是加上web依赖后，就拿tomcat来举例说明,随着springboot项目的启动，会创建一个WebServe
+        -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>
