@@ -3,4 +3,4 @@ info:
 
 server:
   servlet:
-    context-path: client
+    context-path: /client
