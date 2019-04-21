@@ -1,2 +1,5 @@
+info:
+  profile: dev
+
 server:
   port: 9111
