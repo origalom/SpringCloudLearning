@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: git-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/origalom/SpringCloudLearning.git
+          search-paths: configs   # 仓库路径
+#          username:用户名     # 需要权限访问时，可通过配置这2项进行访问
+#          password: 密码
+
+server:
+  port: 9100
