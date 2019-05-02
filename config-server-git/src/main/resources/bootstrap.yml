@@ -1,0 +1,8 @@
+# 加密的key
+encrypt:
+#  key: thsjc   # 对称性加密方式
+  key-store:
+    location: config-server.jks
+    alias: config-server
+    password: 654321    # 对应storepass的值
+    secret: 123456      # 对应keypass的值
