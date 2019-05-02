@@ -2,10 +2,29 @@
 spring:
   application:
     name: git-config-client       # 服务名称，对应配置文件规则中的{application}部分
+  # 单机版配置
+#  cloud:
+#    config:
+#      uri: http://localhost:9100  # 配置中心地址，对应配置文件规则中的{label}部分
+#      profile: dev                # 使用的环境，对应配置文件规则中的{profile}部分
+#      label: master               # git版本，配置中心config-server的地址
+# 集群版服务配置发现
   cloud:
     config:
-      uri: http://localhost:9100  # 配置中心地址，对应配置文件规则中的{label}部分
-      profile: dev                # 使用的环境，对应配置文件规则中的{profile}部分
-      label: master               # git版本，配置中心config-server的地址
+      discovery:
+        enabled: true     # 开启通过服务来访问Config Server的功能
+        service-id: git-config-server      # 来指定Config Server注册的服务名
+      profile: dev        # 其他的几个和通过URI的方式访问时候一样，用来定位Git中的资源
+
 server:
   port: 9111
+
+# 服务集群版配置
+# 服务注册中心
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7000/eureka/
+
+
+
