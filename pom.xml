@@ -13,6 +13,13 @@
         <module>eureka-consumer-9000</module>
         <module>eureka-consumer-ribbon-9001</module>
         <module>eureka-consumer-feign-9002</module>
+        <module>config-server-git</module>
+        <module>git-config-client</module>
+        <module>eureka-consumer-feign-hystrix-9003</module>
+        <module>cloud-hystrix-dashboard</module>
+        <module>cloud-hystrix-dashboard-turbine</module>
+        <module>eureka-consumer-feign-hystrix-9006</module>
+        <module>cloud-api-gateway9007</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -53,6 +60,23 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
+
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <excludes>
+                    <exclude>**/*.jks</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>false</filtering>
+                <includes>
+                    <include>**/*.jks</include>
+                </includes>
+            </resource>
+        </resources>
     </build>
 
 </project>
